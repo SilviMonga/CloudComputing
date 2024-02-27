@@ -1,0 +1,15 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://192.168.64.2:8080
+functions:
+  chatbot:
+    lang: python
+    handler: ./chatbot
+    image: smonga26/chatbot:chatbot
+    environment:
+      content_type: application/json
+      read_timeout: "60s"  # Example environment variable
+      write_timeout: "60s" # Example environment variable
+      dependencies: ./requirements.txt
+
